@@ -23,7 +23,7 @@ sudo pip install virtualenvwrapper
 
 ## Fetch code
 ```bash
-git clone git@gitlab.com:ipsingh06/seedsync.git
+git clone git@gitlab.com:annihilatethee/seedsync.git
 cd seedsync
 ```
 
