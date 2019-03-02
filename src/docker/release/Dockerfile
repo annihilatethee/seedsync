@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
-COPY ./docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     libssl-dev \
@@ -20,6 +19,8 @@ COPY python /app/python
 COPY html /app/html
 COPY scanfs /app/scanfs
 ADD setup_default_config.sh /scripts/
+COPY docker-entrypoint.sh /scripts/
+ENTRYPOINT ["/scripts/docker-entrypoint.sh"]
 
 RUN pip3 install --upgrade pip
 RUN pip3 install -r /app/python/requirements.txt
