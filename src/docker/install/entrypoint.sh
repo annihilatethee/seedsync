@@ -1,5 +1,5 @@
 #!/bin/bash
-
+umask 000
 # exit on first error
 set -e
 
