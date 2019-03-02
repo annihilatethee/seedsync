@@ -16,8 +16,8 @@ RUN mkdir -p /root/.ssh && echo "StrictHostKeyChecking no\nUserKnownHostsFile /d
 
 RUN mkdir /app
 COPY /src/python /app/python
-COPY html /app/html
-COPY scanfs /app/scanfs
+COPY /src/html /app/html
+COPY /src/scanfs /app/scanfs
 ADD setup_default_config.sh /scripts/
 ADD docker-entrypoint.sh /scripts/
 ENTRYPOINT ["/scripts/docker-entrypoint.sh"]
