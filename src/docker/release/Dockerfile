@@ -15,9 +15,9 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /root/.ssh && echo "StrictHostKeyChecking no\nUserKnownHostsFile /dev/null" > /root/.ssh/config
 
 RUN mkdir /app
-ADD python /app/python
-ADD html /app/html
-ADD scanfs /app/scanfs
+COPY /src/python /app/python
+COPY html /app/html
+COPY scanfs /app/scanfs
 ADD setup_default_config.sh /scripts/
 ADD docker-entrypoint.sh /scripts/
 ENTRYPOINT ["/scripts/docker-entrypoint.sh"]
