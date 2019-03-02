@@ -2,7 +2,7 @@
 set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-USERNAME="ipsingh06"
+USERNAME="annihilatethee"
 IMAGE="seedsync"
 VERSION=`cat ${DIR}/VERSION`
 
