@@ -26,11 +26,11 @@ RUN pip3 install -r /app/python/requirements.txt
 # Create non-root user and directories under that user
 RUN mkdir /config && \
     mkdir /downloads && \
-    chown nobody:nobody /config && \
-    chown nobody:nobody /downloads
+    chown 501:1000 /config && \
+    chown 501:1000 /downloads
 
 # Switch to non-root user
-USER nobody
+USER 501:1000
 
 # First time config setup and replacement
 RUN /scripts/setup_default_config.sh
