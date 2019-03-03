@@ -19,7 +19,7 @@ COPY /src/python /app/python
 COPY /src/html /app/html
 COPY /src/scanfs /app/scanfs
 ADD /src/docker/release/setup_default_config.sh /scripts/
-COPY ./docker-entrypoint.sh /
+COPY /src/docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
 RUN pip3 install --upgrade pip
