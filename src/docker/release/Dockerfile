@@ -27,7 +27,7 @@ RUN pip3 install -r /app/python/requirements.txt
 RUN mkdir /config && \
     mkdir /downloads && \
     chown 1003:501 /config && \
-    chown 1003:501/downloads
+    chown 1003:501 /downloads
 
 # Switch to non-root user
 USER annihilatethee
