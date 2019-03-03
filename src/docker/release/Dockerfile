@@ -25,7 +25,7 @@ RUN pip3 install -r /app/python/requirements.txt
 
 # Create non-root user and directories under that user
 #RUN groupadd -g 1547 annihilatethee && \
-#    useradd -r -u 0 -g annihilatethee annihilatethee
+#    useradd -r -u 1547 -g annihilatethee annihilatethee
 RUN mkdir /config && \
     mkdir /downloads && \
     chown 1547:1547 /config && \
