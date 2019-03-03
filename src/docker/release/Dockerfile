@@ -19,17 +19,19 @@ COPY /src/python /app/python
 COPY /src/html /app/html
 COPY /src/scanfs /app/scanfs
 ADD /src/docker/release/setup_default_config.sh /scripts/
+COPY /src/docker/release/docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 RUN pip3 install --upgrade pip
 RUN pip3 install -r /app/python/requirements.txt
 
 # Create non-root user and directories under that user
-RUN groupadd -g 501 nobody && \
-    useradd -r -u 1000 -g nobody seedsync
+RUN groupadd -g 1000 seedsync && \
+    useradd -r -u 1000 -g seedsync seedsync
 RUN mkdir /config && \
     mkdir /downloads && \
-    chown seedsync:nobody /config && \
-    chown seedsync:nobody /downloads
+    chown seedsync:seedsync /config && \
+    chown seedsync:seedsync /downloads
 
 # Switch to non-root user
 USER seedsync
