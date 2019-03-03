@@ -26,8 +26,8 @@ RUN pip3 install -r /app/python/requirements.txt
 # Create non-root user and directories under that user
 RUN groupadd -g 1000 seedsync && \
     useradd -r -u 1000 -g seedsync seedsync
-RUN umask 0002;
-    mkdir /config && \
+RUN mkdir /config && \
+    umask 0002; \
     mkdir /downloads && \
     chown seedsync:seedsync /config && \
     chown seedsync:seedsync /downloads
