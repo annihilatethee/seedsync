@@ -29,7 +29,9 @@ RUN groupadd -g 1000 seedsync && \
 RUN mkdir /config && \
     mkdir /downloads && \
     chown seedsync:seedsync /config && \
-    chown seedsync:seedsync /downloads
+    chown seedsync:seedsync /downloads && \
+	chmod -R 777 /config && \
+	chmod -R 777 /downloads
 
 # Switch to non-root user
 USER seedsync

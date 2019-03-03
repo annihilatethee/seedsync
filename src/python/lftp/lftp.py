@@ -328,7 +328,8 @@ class Lftp:
         command = " ".join([
             "queue",
             "'",
-            "pget -c" if not is_dir else "mirror -c -p",
+            "pget" if not is_dir else "mirror",
+            "-c",
             "\"{remote_dir}/{filename}\"".format(remote_dir=escape(self.__base_remote_dir_path),
                                                  filename=escape(name)),
             "-o" if not is_dir else "",
