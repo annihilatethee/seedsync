@@ -24,16 +24,13 @@ RUN pip3 install --upgrade pip
 RUN pip3 install -r /app/python/requirements.txt
 
 # Create non-root user and directories under that user
-RUN groupadd -g 1000 seedsync && \
-    useradd -r -u 1000 -g seedsync seedsync
 RUN mkdir /config && \
-    umask 0002; \
     mkdir /downloads && \
-    chown seedsync:seedsync /config && \
-    chown seedsync:seedsync /downloads
+    chown 1003:501 /config && \
+    chown 1003:501/downloads
 
 # Switch to non-root user
-USER seedsync
+USER annihilatethee
 
 # First time config setup and replacement
 RUN /scripts/setup_default_config.sh
