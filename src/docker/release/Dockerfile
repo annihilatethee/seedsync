@@ -24,8 +24,8 @@ RUN pip3 install --upgrade pip
 RUN pip3 install -r /app/python/requirements.txt
 
 # Create non-root user and directories under that user
-RUN groupadd -g 0 root && \
-    useradd -r -u 0 -g root root
+#RUN groupadd -g 0 root && \
+#    useradd -r -u 0 -g root root
 RUN mkdir /config && \
     mkdir /downloads && \
     chown 0:0 /config && \
