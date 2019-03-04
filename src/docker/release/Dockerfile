@@ -24,17 +24,17 @@ RUN pip3 install --upgrade pip
 RUN pip3 install -r /app/python/requirements.txt
 
 # Create non-root user and directories under that user
-#RUN groupadd -g 1547 annihilatethee && \
-#    useradd -r -u 1547 -g annihilatethee annihilatethee
-#RUN mkdir /config && \
-#    mkdir /downloads && \
-#    chown 1547:1547 /config && \
-#    chown 1547:1547 /downloads && \
-#	chmod -R 777 /config && \
-#	chmod -R 777 /downloads
+RUN groupadd -g 1547 annihilatethee && \
+    useradd -r -u 1547 -g annihilatethee annihilatethee
+RUN mkdir /config && \
+    mkdir /downloads && \
+    chown 1547:1547 /config && \
+    chown 1547:1547 /downloads && \
+	chmod -R 777 /config && \
+	chmod -R 777 /downloads
 
 # Switch to non-root user
-#USER annihilatethee
+USER annihilatethee
 
 # First time config setup and replacement
 RUN /scripts/setup_default_config.sh
