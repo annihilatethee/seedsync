@@ -47,4 +47,5 @@ CMD [ \
     "--scanfs", "/app/scanfs" \
 ]
 
-EXPOSE 8800
+EXPOSE 8800/tcp
+EXPOSE 8800/udp
